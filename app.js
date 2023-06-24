@@ -9,4 +9,4 @@ app.use(morgan('combined'))
 app.use('/users', userRoutes)
 app.use('/posts', postRoutes)
 
-module.exports = apps
+module.exports = app
