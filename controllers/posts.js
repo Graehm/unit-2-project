@@ -14,7 +14,7 @@ exports.createPost = async function (req, res) {
     }
 }
 
-exports.show = async function (req, res) {
+exports.showPost = async function (req, res) {
     try {
         const post = await Post.findOne({_id: req.params.id})
         res.json(post)
@@ -26,5 +26,6 @@ exports.show = async function (req, res) {
 // show feed? possible to see index of posts from multiple users? 
 
 // edit/update
+exports.updatePost
 
 // delete
