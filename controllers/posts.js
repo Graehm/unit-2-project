@@ -13,7 +13,6 @@ exports.createPost = async function (req, res) {
         req.user.posts.addToSet({_id: post._id}):
         req.user.posts = [{_id: post._id}]
         await req.user.save()
-
         res.json(post)
     } catch (error) {
         res.status(400).json({message: error.message})
