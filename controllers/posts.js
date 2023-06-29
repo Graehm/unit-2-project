@@ -28,7 +28,15 @@ exports.showPost = async function (req, res) {
     }
 }
 
-// show feed? possible to see index of posts from multiple users? 
+// show feed? see index of posts from all users? 
+exports.showAllPosts = async function (req, res) {
+    try {
+        const showAllPosts = await Post.Find({})
+        res.json(showAllPosts)
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+}
 
 exports.updatePost = async function (req, res) {
     try {

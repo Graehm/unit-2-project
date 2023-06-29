@@ -9,9 +9,3 @@ router.delete('/:id', userController.auth, userController.deleteUser)
 
 module.exports = router
 
-
-
-// create 
-// login
-// update
-// delete 
