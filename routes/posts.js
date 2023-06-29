@@ -8,3 +8,5 @@ router.get('/:id', userController.auth, postController.showPost) //show/read
 router.get('/allPosts', userController.auth, postController.showAllPosts) //show all
 router.put('/:id', userController.auth, postController.updatePost) // updata
 router.delete('/:id', userController.auth, postController.deletePost) //delete
+
+module.exports = router

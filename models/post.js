@@ -1,4 +1,5 @@
-const {model, schema} = require('mongoose')
+require('dotenv').config()
+const {model, Schema} = require('mongoose')
 
 const postSchema = new Schema({
     title: {type: String, required: true},
