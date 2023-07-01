@@ -32,7 +32,7 @@ exports.createUser = async (req, res) => {
 
 exports.loginUser = async(req, res) => {
     try {
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({email: req.body.username})
         if(!user || !await bcrypt.compare(req.body.password, user.password)){
             throw new Error('Hey Bud, your not you')
         }else{
@@ -47,8 +47,7 @@ exports.loginUser = async(req, res) => {
 exports.updateUser = async (req, res) => {
     try {
         const update = Object.keys(req.body)
-        this.updateUser.forEach(update => req.user[update] = req.body[update])
-        // const user = await User.findOne({_id: req.user._id})
+        update.forEach(update => req.user[update] = req.body[update])
         await req.user.save()
         res.json(user)
     } catch (error) {
@@ -65,3 +64,12 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
+exports.logoutUser = async (req, res) => {
+    try {
+        req.user.isLoggedIn = false
+        await req.user.save()
+        res.json({message: 'Logged out bud'})
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
+}
