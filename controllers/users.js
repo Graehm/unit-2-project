@@ -4,7 +4,7 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-exports.auth = async (req, res, next) =>{ //middleware function that verifies/assigns auth token 
+exports.auth = async (req, res, next) =>{
     try {
         const token = req.header('Authorization').replace('Bearer ', '')
         const data = jwt.verify(token, process.env.SECRET)
@@ -23,7 +23,7 @@ exports.createUser = async (req, res) => {
     try {
         const user = new User(req.body)
         await user.save() // save the user which also hash's the password instead of await User and hash pass.
-        const token = await User.generateAuthToken()
+        const token = await user.generateAuthToken()
         res.json({user, token})
     } catch (error) {
         res.status(400).json({message: error.message})
@@ -32,7 +32,7 @@ exports.createUser = async (req, res) => {
 
 exports.loginUser = async(req, res) => {
     try {
-        const user = await User.findOne({email: req.body.username})
+        const user = await User.findOne({username: req.body.username})
         if(!user || !await bcrypt.compare(req.body.password, user.password)){
             throw new Error('Hey Bud, your not you')
         }else{
