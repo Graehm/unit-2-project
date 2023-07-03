@@ -19,8 +19,8 @@ userSchema.pre('save', async function(next){
 })
 
 userSchema.methods.generateAuthToken = async function(){
-    this.isLoggedIn = true
-    await this.save()
+    // this.isLoggedIn = true
+    // await this.save()
     const token = jwt.sign({_id: this._id}, process.env.SECRET)
     this.token = token
     return token

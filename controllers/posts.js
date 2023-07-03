@@ -18,7 +18,7 @@ exports.createPost = async function (req, res) {
     }
 }
 
-exports.showPost = async function (req, res) {
+exports.showMyPost = async function (req, res) {
     try {
         const post = await Post.findOne({_id: req.params.id})
         res.json(post)
@@ -27,7 +27,7 @@ exports.showPost = async function (req, res) {
     }
 }
 
-exports.showPosts = async function (req, res) {
+exports.showPosts = async function (req, res) { // is this how you show all posts from all users? or all posts the logged in user created?
     try {
         const showPosts = await Post.Find({})
         res.json(showPosts)

@@ -10,7 +10,7 @@ exports.auth = async (req, res, next) =>{
         const data = jwt.verify(token, process.env.SECRET)
         const user = await User.findOne({_id: data._id})
         if(!user){
-            throw new Error ('Hey Bud, you happy with that?')
+            throw new Error ('Wrong credentials bud')
         }
         req.user = user
         next()
@@ -34,7 +34,7 @@ exports.loginUser = async(req, res) => {
     try {
         const user = await User.findOne({username: req.body.username})
         if(!user || !await bcrypt.compare(req.body.password, user.password)){
-            throw new Error('Hey Bud, your not you')
+            throw new Error('Gotcha bud!')
         }else{
             const token = await user.generateAuthToken()
             res.json({user, token})
@@ -68,7 +68,7 @@ exports.logoutUser = async (req, res) => {
     try {
         req.user.isLoggedIn = false
         await req.user.save()
-        res.json({message: 'Logged out bud'})
+        res.json({message: 'Bye bud'})
     } catch (error) {
         res.status(400).json({message: error.message})
     }
