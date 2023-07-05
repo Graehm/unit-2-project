@@ -56,7 +56,7 @@ describe('testing the buddy CRUD post endpoints', () => {
         })
         await post.save()
         const response = await request(app)
-            .get(`/posts/${post._id}`)
+            .get(`/posts/${post.id}`)
             .send('Authorization', `Bearer ${token}`)
 
         expect(response.statusCode).toBe(200)
@@ -87,11 +87,49 @@ describe('testing the buddy CRUD post endpoints', () => {
     })
 
     test('Should update a post', async () => {
+        const user = new User ({
+            name: "Bud",
+            username: "yourBud",
+            password: "imABud"
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
+        const post = new Post ({
+            title: "UPDATED title post", 
+            body: "UPDATED post theme"
+        })
+        await post.save()
 
+        const response = await request(app)
+            .put(`/post/${post.id}`)
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                title: "New and Updated title post",
+                body: "New and updated post theme"
+            })
+        expect(response.statusCode).toBe(200)
+        expect(response.body.title).toEqual('New and Updated title post')
+        expect(response.body.body).toEqual('New and updated post theme')
     })
 
     test('Should delete a post', async () => {
-
+        const user = new User({
+            name: "Bud",
+            username: "yourBud",
+            password: "imABud"
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
+        const post = new Post({
+            title: "title post", 
+            body: "post theme"
+        })
+        await post.save()
+        const response = await request(app)
+            .delete(`/post/${post.id}`)
+            .set('Authorization', `Bearer ${token}`)
+        expect(response.statusCode).toBe(200)
+        expect(response.body.message).toEqual('user deleted bud')
     })
 })
 
