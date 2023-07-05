@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const {MongoMemoryServer} = require('mongodb-memory-server')
 const app = require('../app')
 const server = app.listen(8080, () => {
-    console.log('Test some Hey Buds')
+    console.log('Test some Hey Bud users')
 })
 const User = require('../models/user')
 const Post = require('../models/post')
@@ -23,7 +23,7 @@ afterAll(async () => {
 describe('Test CRUD user endpoints/routes', () => {
     test('Should create user', async () => {
         const response = await request(app)
-            .post('/user')
+            .post('/users')
             .send({
                 name: "Bud",
                 username: "yourBud",
@@ -56,14 +56,57 @@ describe('Test CRUD user endpoints/routes', () => {
     })
 
     test('Should update user', async () => {
+        const user = new User ({
+            name: "heyBud", 
+            username: "heyYouBud", 
+            password: "heyImABud"
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
 
+        const response = await request(app)
+            .put(`/users/${user._id}`)
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                name: "heyBud", 
+                username: "heyYouBud", 
+                password: "heyImABud"
+            })
+            expect(response.statusCode).toBe(200)
+            expect(response.body.user.name).toEqual('Bud')
+            expect(response.body.user.username).toEqual('yourBud')
     })
 
     test('Should delete user', async () => {
+        const user = new User ({
+            name: "Bud", 
+            username: "yourBud", 
+            password: "imABud"
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
 
+        const response = await request(app)
+            .delete(`/users/${user._id}`)
+            .set('Authorization', `Bearer ${token}`)
+
+        expect(response.statusCode).toBe(200)
     })
 
     test('Should logout user', async () => {
+        const user = new User ({
+            name: "Bud", 
+            username: "yourBud", 
+            password: "imABud"
+        })
+        await user.save()
+        const token = await user.generateAuthToken()
         
+        const response = await request(app)
+            .post('users/logout')
+            .set('Authorization', `Bearer ${token}`)
+            .send ({})
+        expect(response.statusCode).toBe(200)
+        expect(response.body.message).toEqual('logged out Bud')
     })
 })
