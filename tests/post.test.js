@@ -26,6 +26,7 @@ describe('testing the buddy CRUD post endpoints', () => {
         const user = new User ({
             name: "Bud",
             username: "yourBud",
+            email: "bud@buddy.com",
             password: "imABud"
         })
         await user.save()
@@ -46,6 +47,7 @@ describe('testing the buddy CRUD post endpoints', () => {
         const user = new User ({
             name: "Bud",
             username: "yourBud",
+            email: "bud@buddy.com",
             password: "imABud"
         })
         await user.save()
@@ -64,10 +66,11 @@ describe('testing the buddy CRUD post endpoints', () => {
         expect(response.body.body).toEqual('post theme')
     })
 
-    test('Should show all posts from one users', async () => {
+    test('Should show all posts from all users', async () => {
         const user = new User ({
             name: "Bud",
             username: "yourBud",
+            email: "bud@buddy.com",
             password: "imABud"
         })
         await user.save()
@@ -90,6 +93,7 @@ describe('testing the buddy CRUD post endpoints', () => {
         const user = new User ({
             name: "Bud",
             username: "yourBud",
+            email: "bud@buddy.com",
             password: "imABud"
         })
         await user.save()
@@ -116,6 +120,7 @@ describe('testing the buddy CRUD post endpoints', () => {
         const user = new User({
             name: "Bud",
             username: "yourBud",
+            email: "bud@buddy.com",
             password: "imABud"
         })
         await user.save()
