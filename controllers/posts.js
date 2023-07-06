@@ -47,7 +47,7 @@ exports.updatePost = async function (req, res) {
 
 exports.deletePost = async function (req, res) {
     try {
-        const Post = await Post.findOneAndDelete({_id: req.params.id})
+        const post = await Post.findOneAndDelete({_id: req.params.id})
         res.sendStatus(204)
     } catch (error) {
         res.status(400).json({message: error.message})
