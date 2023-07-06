@@ -1,6 +1,3 @@
-// look at w13 vid 1 7min to see how to make date render correctly 
-// look at w13 vid 2 to see how to incorporate data relation in endpoints
-
 const Post = require('../models/post')
 const User = require('../models/user')
 
@@ -27,7 +24,7 @@ exports.showMyPost = async function (req, res) {
     }
 }
 
-exports.showPosts = async function (req, res) { // is this how you show all posts from all users? or all posts the logged in user created?
+exports.showPosts = async function (req, res) {
     try {
         const showPosts = await Post.find({})
         res.json(showPosts)

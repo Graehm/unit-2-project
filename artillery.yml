@@ -10,4 +10,5 @@ scenarios:
         json:
           name: 'testName'
           username: 'testUsername'
+          email: 'testEmail'
           password: 'testPassword'

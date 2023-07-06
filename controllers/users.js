@@ -22,7 +22,7 @@ exports.auth = async (req, res, next) =>{
 exports.createUser = async (req, res) => {
     try {
         const user = new User(req.body)
-        await user.save() // save the user which also hash's the password instead of await User and hash pass.
+        await user.save()
         const token = await user.generateAuthToken()
         res.json({user, token})
     } catch (error) {
