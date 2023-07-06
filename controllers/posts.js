@@ -29,7 +29,7 @@ exports.showMyPost = async function (req, res) {
 
 exports.showPosts = async function (req, res) { // is this how you show all posts from all users? or all posts the logged in user created?
     try {
-        const showPosts = await Post.Find({})
+        const showPosts = await Post.find({})
         res.json(showPosts)
     } catch (error) {
         res.status(400).json({message: error.message})
@@ -38,7 +38,7 @@ exports.showPosts = async function (req, res) { // is this how you show all post
 
 exports.updatePost = async function (req, res) {
     try {
-        const post = await Post.finOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        const post = await Post.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
         res.json(post)
     } catch (error) {
         res.status(400).json({message: error.message})
