@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const {MongoMemoryServer} = require('mongodb-memory-server')
 const app = require('../app')
 const server = app.listen(8080, () => {
-    console.log('Test some Hey Bud users')
+    console.log('serving user end points')
 })
 const User = require('../models/user')
 const Post = require('../models/post')
