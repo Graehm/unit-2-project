@@ -14,6 +14,7 @@ Follow these steps to launch the app:
 4. create your .env file. Inside, drop in your private MONGO_URI as well as a [hashed secret](https://emn178.github.io/online-tools/sha256.html)
 5. Start the app with by typying npm run dev or npm start!
 ## Running the App
+Now that the app is running, we can open Postman and manually test our CRUD functionality on either of the data entities. For a breakdown, follow these steps:
 
 
 
