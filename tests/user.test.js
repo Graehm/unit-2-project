@@ -20,28 +20,28 @@ afterAll(async () => {
     server.close()
 })
 
-describe('Test CRUD user endpoints/routes', () => {
+describe('Test user CRUD endpoints/routes', () => {
     test('Should create user', async () => {
         const response = await request(app)
             .post('/users')
             .send({
                 name: "Bud",
-                username: "yourBud",
-                email: "bud@buddy.com",
+                username: "yourBuda",
+                email: "bud@buddya.com",
                 password: "imABud"
             })
         expect(response.statusCode).toBe(200)
         expect(response.body.user.name).toEqual('Bud')
-        expect(response.body.user.username).toEqual('yourBud')
-        expect(response.body.user.email).toEqual('bud@buddy.com')
+        expect(response.body.user.username).toEqual('yourBuda')
+        expect(response.body.user.email).toEqual('bud@buddya.com')
         expect(response.body).toHaveProperty('token')
     })
 
     test('Should login user', async () => {
         const user = new User ({
             name: 'Bud',
-            username: 'yourBud',
-            email: "bud@buddy.com", 
+            username: 'yourBudb',
+            email: "bud@buddyb.com", 
             password: 'imABud'
         })
         await user.save()
@@ -49,22 +49,22 @@ describe('Test CRUD user endpoints/routes', () => {
             .post('/users/login')
             .send({
                 name: 'Bud',
-                username: 'yourBud',
-                email: "bud@buddy.com",
+                username: 'yourBudb',
+                email: "bud@buddyb.com",
                 password: 'imABud'
             })
         expect(response.statusCode).toBe(200)
         expect(response.body.user.name).toEqual('Bud')
-        expect(response.body.user.username).toEqual('yourBud')
-        expect(response.body.user.email).toEqual('bud@buddy.com')
+        expect(response.body.user.username).toEqual('yourBudb')
+        expect(response.body.user.email).toEqual('bud@buddyb.com')
         expect(response.body).toHaveProperty('token')
     })
 
     test('Should update user', async () => {
         const user = new User ({
             name: "heyBud", 
-            username: "heyYourBud",
-            email: "bud@buddy.com", 
+            username: "heyYourBudc",
+            email: "bud@buddyc.com", 
             password: "heyImABud"
         })
         await user.save()
@@ -81,15 +81,15 @@ describe('Test CRUD user endpoints/routes', () => {
             })
             expect(response.statusCode).toBe(200)
             expect(response.body.user.name).toEqual('heyBud')
-            expect(response.body.user.username).toEqual('yourBud')
-            expect(response.body.user.email).toEqual('buddy@bud.com')
+            expect(response.body.user.username).toEqual('yourBudc')
+            expect(response.body.user.email).toEqual('buddy@budc.com')
     })
 
     test('Should delete user', async () => {
         const user = new User ({
             name: "Bud", 
-            username: "yourBud",
-            email: "bud@buddy.com", 
+            username: "yourBudd",
+            email: "bud@buddyd.com", 
             password: "imABud"
         })
         await user.save()
@@ -105,8 +105,8 @@ describe('Test CRUD user endpoints/routes', () => {
     test('Should logout user', async () => {
         const user = new User ({
             name: "Bud", 
-            username: "yourBud",
-            email: "bud@buddy.com", 
+            username: "yourBude",
+            email: "bud@buddye.com", 
             password: "imABud"
         })
         await user.save()

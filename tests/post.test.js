@@ -2,10 +2,10 @@ const request = require('supertest')
 const mongoose = require('mongoose')
 const {MongoMemoryServer} = require('mongodb-memory-server')
 const app = require('../app')
-const server = app.listen(8080, () => {
-    console.log('Testing some posts bud')
+// const server = app.listen(8080, () => {
+//     console.log('Testing some posts bud')
 
-})
+// })
 const User = require('../models/user')
 const Post = require('../models/post')
 let mongoServer
@@ -18,15 +18,15 @@ beforeAll(async () => {
 afterAll(async () => {
     await mongoose.connection.close()
     mongoServer.stop()
-    server.close()
+    // server.close()
 })
 
-describe('testing the buddy CRUD post endpoints', () => {
+describe('testing the post CRUD endpoints', () => {
     test('Should create post', async () => {
         const user = new User ({
             name: "Bud",
-            username: "yourBud",
-            email: "bud@buddy.com",
+            username: "yourBud1",
+            email: "bud@buddy1.com",
             password: "imABud"
         })
         await user.save()
@@ -46,8 +46,8 @@ describe('testing the buddy CRUD post endpoints', () => {
     test('Should show a post', async () => {
         const user = new User ({
             name: "Bud",
-            username: "yourBud",
-            email: "bud@buddy.com",
+            username: "yourBud2",
+            email: "bud@buddy2.com",
             password: "imABud"
         })
         await user.save()
@@ -69,8 +69,8 @@ describe('testing the buddy CRUD post endpoints', () => {
     test('Should show all posts from all users', async () => {
         const user = new User ({
             name: "Bud",
-            username: "yourBud",
-            email: "bud@buddy.com",
+            username: "yourBud3",
+            email: "bud@buddy.com4",
             password: "imABud"
         })
         await user.save()
@@ -92,8 +92,8 @@ describe('testing the buddy CRUD post endpoints', () => {
     test('Should update a post', async () => {
         const user = new User ({
             name: "Bud",
-            username: "yourBud",
-            email: "bud@buddy.com",
+            username: "yourBud4",
+            email: "bud@buddy4.com",
             password: "imABud"
         })
         await user.save()
@@ -119,8 +119,8 @@ describe('testing the buddy CRUD post endpoints', () => {
     test('Should delete a post', async () => {
         const user = new User({
             name: "Bud",
-            username: "yourBud",
-            email: "bud@buddy.com",
+            username: "yourBud5",
+            email: "bud@buddy5.com",
             password: "imABud"
         })
         await user.save()
