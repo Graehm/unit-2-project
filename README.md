@@ -11,10 +11,10 @@ In preperation for this app to run on your device, you must have these packages 
 Follow these steps to launch the app:
 1. clone this repository by clicking on the "<> Code" button and copy the SSH key. 
 2. In the terminal, first 
->type git clone followed by the SSH key.
->type npm i or npm install.
->create your .env file. 
->Then inside the .env, put in your private MONGO_URI as well as a [hashed secret](https://emn178.github.io/online-tools/sha256.html)
+>type git clone followed by the SSH key...
+>type npm i or npm install...
+>create your .env file...
+>Then inside the .env, put in your private MONGO_URI as well as a [hashed secret](https://emn178.github.io/online-tools/sha256.html)..
 3. Start the app with by typying npm run dev or npm start!
 ## Running the App
 Now that the app is running, open Postman and manually test our CRUD functionality on either of the data entities. For a breakdown, follow these steps:
