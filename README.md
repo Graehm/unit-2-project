@@ -18,7 +18,7 @@ Follow these steps to launch the app:
 6. Start the app with by typying npm run dev or npm start!
 ## Running the App
 Now that the app is running, open Postman and manually test our CRUD functionality on either of the data entities. For a breakdown, follow these steps:
-To Create a User
+#### To Create a User
 + open Postman and connect to PORT 3000 "http://localhost:3000
     - set the endpoint to /users
 + Postman method: POST
@@ -50,7 +50,7 @@ Postman Response
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE4NWM4ZmVjY2FmMTNlZTM1Zjk1YzgiLCJpYXQiOjE2ODg3NTUzNDR9.8fUCu2yQtPkkMaB6TngAEw9nzFTm0vP--tbQc0CYiSE"
 }
 ```
-To Login a User
+#### To Login a User
 + add /login to the endpoint
 + Postman method: POST
 + press send 
@@ -74,7 +74,7 @@ Postman Response
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE4NWM4ZmVjY2FmMTNlZTM1Zjk1YzgiLCJpYXQiOjE2ODg3NTU4NjJ9._nyTF8rnQ-Zb60sitvW8ieVruLtXa_fbBN-Vf46VEmE"
 }
 ```
-To Create a Post
+#### To Create a Post
 + delete the user endpoints in the URL and replace it with "/posts"
 + Postman method: POST
 + fill out the required post information
@@ -96,7 +96,7 @@ Postman Response
     "__v": 0
 }
 ```
-To Read the specific Created Post 
+#### To Read the specific Created Post 
 + Postman method: GET
 + In the URL after /posts/, attach the unique _id of the post to the end of the URL
 + press send
@@ -113,7 +113,7 @@ Postman Response
     "__v": 0
 }
 ```
-To Update a Specific Post
+#### To Update a Specific Post
 + Postman method: PUT
 + copy the unique post _id and paste it into the URL after /posts/
 + make changes and edits to the blog post
@@ -136,7 +136,7 @@ Postman Response
     "__v": 0
 }
 ```
-To Delete a Post
+#### To Delete a Post
 + Postman method: DELETE
 + place the unique post _id onto the end of the URL after /posts/
 + verify the the data inside of the body of Postman is the same that is being displayed 
