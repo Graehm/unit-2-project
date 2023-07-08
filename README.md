@@ -1,4 +1,3 @@
-## h2 Blog API Application
 # Blog API
 In this project we download and practice data relationship by using a Node, Express and MongoDB app. The two data entities are demonstrated with a user and their post(s). Once a user is created, we can then apply CRUD (create, read, update and deleted) functionality to each of the data entities. 
 
@@ -6,20 +5,26 @@ View my [Trello board](https://trello.com/b/a2z1tiWO/unit-2-project) for a more 
 ## Prerequisites 
 In preperation for this app to run and test on your device, you must have these packages and apps downloaded:
 - node
-- nodeman (download globally)
+- nodeman (download globally - Linux and Mac users must use "sudo npm i -g nodemon)
 - postman
 ## App Set Up 
 Follow these steps to launch the app:
 1. clone this repository by clicking on the "<> Code" button and copy the SSH key. 
-2. In the terminal, first type git clone followed by the SSH key...
-3. type npm i or npm install...
-4. create your .env file...
-5. Then inside the .env, place in your private MONGO_URI as well as a [hashed secret](https://emn178.github.io/online-tools/sha256.html)
-6. Start the app with by typying npm run dev or npm start!
+2. In the terminal, first type git clone followed by pasting the SSH key
+3. cd into the directory, then cd into unit-2-project
+4. open VScode with code 
+5. create your .env file
+6. Then inside the .env, place in your private MONGO_URI as well as a [hashed secret](https://emn178.github.io/online-tools/sha256.html)
+7. type npm i or npm install
+8. Start the app with by typying npm run dev or npm start!
+## Automated Testing
+In order to run automated tesing
+1. In the terminal type and enter "npm run test"
+2. A passing test will be verified with a green PASS icon
 ## Running the App
-Now that the app is running, open Postman and manually test our CRUD functionality on either of the data entities. For a breakdown, follow these steps:
+Now that the app is running, open Postman and manually test our CRUD functionality on either of the data entities. For a breakdown, follow these steps.
 #### To Create a User
-+ open Postman and connect to PORT 3000 "http://localhost:3000
++ open Postman and connect to PORT 3000 "http://localhost:3000"
     - set the endpoint to /users
 + Postman method: POST
 + fill out required user info 
