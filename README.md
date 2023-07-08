@@ -5,7 +5,7 @@ View my [Trello board](https://trello.com/b/a2z1tiWO/unit-2-project) for a more 
 ## Prerequisites 
 In preperation for this app to run and test on your device, you must have these packages and apps downloaded:
 - node
-- nodeman (download globally - Linux and Mac users must use "sudo npm i -g nodemon)
+- nodemon (download globally - Linux and Mac users must use "sudo npm i -g nodemon)
 - postman
 ## App Set Up 
 Follow these steps to launch the app:
