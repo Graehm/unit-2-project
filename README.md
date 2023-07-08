@@ -19,11 +19,11 @@ Follow these steps to launch the app:
 8. Start the app with by typying npm run dev or npm start!
 ## Automated Testing
 In order to run automated testing
-1. In the terminal type and enter "npm run test"
-2. A passing test will be verified with a green PASS icon
++ In the terminal type and enter "npm run test"
+    - A passing test will be verified with a green PASS icon
 In order to run load testing
-1. In the terminal type and enter "npm run load"
-2. *NOTE* the server must be linked in order for artillery to work
++ In the terminal type and enter "npm run load"
+    - *NOTE* the server must be linked in order for artillery to work
 ## Running the App
 Now that the app is running, open Postman and manually test our CRUD functionality on either of the data entities. For a breakdown, follow these steps.
 #### To Create a User
