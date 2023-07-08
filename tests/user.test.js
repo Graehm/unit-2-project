@@ -113,10 +113,10 @@ describe('Test user CRUD endpoints/routes', () => {
         const token = await user.generateAuthToken()
         
         const response = await request(app)
-            .post('users/logout')
+            .post('/users/logout')
             .set('Authorization', `Bearer ${token}`)
             .send ({})
         expect(response.statusCode).toBe(200)
-        expect(response.body.message).toEqual('logged out Bud')
+        expect(response.body.message).toEqual('Bye bud')
     })
 })
