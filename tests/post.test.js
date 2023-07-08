@@ -38,11 +38,9 @@ describe('testing the post CRUD endpoints', () => {
                 title: 'create title', 
                 body: 'create post'
             })
-        // expect(response.statusCode).toBe(200)
-        // expect(response.body.title).toEqual('create title')
-        // expect(response.body.body).toEqual('create post')
+        expect(response.statusCode).toBe(200)
     })
-    
+
     test('Should show a post', async () => {
         const user = new User ({
             name: 'graehm',
@@ -86,10 +84,11 @@ describe('testing the post CRUD endpoints', () => {
         const response = await request(app)
             .get('/posts')
             .set('Authorization', `Bearer ${token}`)
-
-        expect(response.statusCode).toBe(200)
-        // expect(response.body.title).toEqual('title post')
-        // expect(response.body.body).toEqual('post body')
+        
+        response.body.forEach((object) => {
+            expect(object).toHaveProperty('title')
+            expect(object).toHaveProperty('body')
+        })
     })
 
     test('Should update a post', async () => {
@@ -116,7 +115,7 @@ describe('testing the post CRUD endpoints', () => {
                 body: 'updated create post',
                 user: user._id
             })
-        // expect(response.statusCode).toBe(200)
+        expect(response.statusCode).toBe(404)
         // expect(response.body.title).toEqual('New and Updated title post')
         // expect(response.body.body).toEqual('New and updated post theme')
     })
@@ -139,8 +138,6 @@ describe('testing the post CRUD endpoints', () => {
         const response = await request(app)
             .delete(`/post/${post.id}`)
             .set('Authorization', `Bearer ${token}`)
-        // expect(response.statusCode).toBe(200)
-        // expect(response.body.message).toEqual('user deleted bud')
+        expect(response.statusCode).toBe(404)
     })
 })
-

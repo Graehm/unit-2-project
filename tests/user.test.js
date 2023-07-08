@@ -79,7 +79,7 @@ describe('Test user CRUD endpoints/routes', () => {
                 email: 'updatedupdategraehm@g.com',
                 password: 'pass'
             })
-            // expect(response.statusCode).toBe(200)
+            expect(response.statusCode).toBe(200)
             // expect(response.body.user.name).toEqual('graehm')
             // expect(response.body.user.username).toEqual('updateupdategfaz')
             // expect(response.body.user.email).toEqual('updatedupdategraehm@g.com')
@@ -99,7 +99,7 @@ describe('Test user CRUD endpoints/routes', () => {
             .delete(`/users/${user._id}`)
             .set('Authorization', `Bearer ${token}`)
 
-        // expect(response.statusCode).toBe(200)
+        expect(response.statusCode).toBe(204)
     })
 
     test('Should logout user', async () => {

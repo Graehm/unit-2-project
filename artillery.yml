@@ -6,15 +6,10 @@ config:
 scenarios:
   - flow:
     - post:
-        url: '/users'
+        url: '/posts'
         json:
-          name: 'Bud'
-          username: 'yourBud'
-          email: 'bud@buddy.com'
-          password: 'imABud'
-
-          # title: 'title post'
-          # body: 'the body'
+          title: 'title post'
+          body: 'the body'
 
 
           # name: 'Bud'
